@@ -1,1 +1,0 @@
-../shared/awesome-cv.cls

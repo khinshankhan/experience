@@ -1,4 +1,0 @@
-#+TITLE: resume
-
-** Credits
-   GitHub user [[https://github.com/posquit0][posquit0]] created the original template [[https://github.com/posquit0/Awesome-CV][Awesome-CV]].
