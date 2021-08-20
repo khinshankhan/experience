@@ -608,6 +608,40 @@
   \end{tabular*}%
 }
 
+% Define an entry of cv header information
+\newcommand*{\cventrycustom}[6]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#3#4#5#6}
+            {\entrypositionstyle{#1} & \entrydatestyle{#2} \\}
+            {\entrytitlestyle{#1} & \entrylocationstyle{#2} \\
+              \entrypositionstyle{#3} & \entrydatestyle{#4} \\
+              \entrypositionstyle{#5} & \entrydatestyle{#6} \\}
+  \end{tabular*}%
+}
+
+% Define an entry of cv body information
+\newcommand*{\cventrycustombody}[6]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#5#6}
+            {\descriptionstyle{#1} \\
+              \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#2}} \\
+              \descriptionstyle{#3} \\
+              \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}} \\}
+            {\descriptionstyle{#1} \\
+              \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#2}} \\
+              \descriptionstyle{#3} \\
+              \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}} \\
+              \descriptionstyle{#5} \\
+              \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#6}} \\}
+  \end{tabular*}%
+}
+
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{%
   \begin{center}
