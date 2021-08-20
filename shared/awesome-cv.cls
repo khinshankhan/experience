@@ -655,6 +655,19 @@
   \end{tabular*}%
 }
 
+% Define an entry of cv information without position
+\newcommand*{\cventrynoposition}[4]{%
+   \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 7.5cm} R{7.5cm}}
+    \ifempty{#3#4}
+      {\entrypositionstyle{#1} & \entrydatestyle{#2} \\}
+      {\entrytitlestyle{#1}\descriptionstyle{#2} & \entrylocationstyle{#3} \\}
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}}
+  \end{tabular*}%
+}
+
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{%
   \begin{center}
