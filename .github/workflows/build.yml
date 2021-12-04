@@ -1,0 +1,44 @@
+name: Github Actions CI
+on:
+  push:
+    branches:
+      - master
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+    - name: Set up Git repository
+      uses: actions/checkout@v2
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: latest/resume.tex
+        latexmk_use_xelatex: true
+    - name: Check pdf file
+      run: |
+        file resume.pdf | grep -q ' PDF '
+    - name: organize
+      run: |
+        mkdir -p public public/latest
+        mv resume.pdf public/latest
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install -g yarn
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+    - name: Run deploy script
+      run: |
+        git config user.name "spicyriceball"
+        git config user.email "spicyriceballs@protonmail.com"
+        npm run deploy
