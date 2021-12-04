@@ -4,6 +4,9 @@ output
 # editor generated
 auto
 
+# js
+node_modules
+
 # Created by https://www.toptal.com/developers/gitignore/api/latex
 # Edit at https://www.toptal.com/developers/gitignore?templates=latex
 

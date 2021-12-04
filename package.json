@@ -1,0 +1,11 @@
+{
+  "name": "experience",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "gatsby build && gh-pages -d public -b gh-pages"
+  },
+  "dependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}
