@@ -22,6 +22,8 @@ jobs:
       with:
         root_file: latest/resume.tex
         latexmk_use_xelatex: true
+      env:
+        TEXINPUTS: ".:./latest//:./latest/fonts//:"
     - name: Check pdf file
       run: |
         file resume.pdf | grep -q ' PDF '
@@ -29,7 +31,6 @@ jobs:
       run: |
         mkdir -p public public/latest
         mv resume.pdf public/latest
-    - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
