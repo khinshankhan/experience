@@ -91,6 +91,9 @@
 % Solves issues Warning: File `cv.out' has changed
 \RequirePackage{bookmark}
 
+% Needed for colored underlines
+\RequirePackage{soul}
+
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations
 %-------------------------------------------------------------------------------
@@ -155,6 +158,12 @@
 % Awesome section color
 \def\@sectioncolor#1#2#3{%
   \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
+}
+
+% underline certain hrefs for visibility https://tex.stackexchange.com/a/26093
+\newcommand*{\myhy}[2]{
+  \setulcolor{cyan}
+  \href{#1}{\ul{#2}}
 }
 
 
@@ -652,6 +661,99 @@
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
   \end{tabular*}%
 }
+
+% TODO: get back to this
+\newcommand*{\nrolecventry}[9]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#5#6}
+      {\entrytitlestyle{#1} & \entrylocationstyle{#2} \\
+      \entrypositionstyle{#3} & \entrydatestyle{#4} \\}
+      {\ifempty{#7#8}
+        {\entrytitlestyle{#1} & \entrylocationstyle{#2} \\
+        \entrypositionstyle{#3} & \entrydatestyle{#4} \\
+        \entrypositionstyle{#5} & \entrydatestyle{#6} \\}
+        {\entrytitlestyle{#1} & \entrylocationstyle{#2} \\
+        \entrypositionstyle{#3} & \entrydatestyle{#4} \\
+        \entrypositionstyle{#5} & \entrydatestyle{#6} \\
+        \entrypositionstyle{#7} & \entrydatestyle{#8} \\}}
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#9}}
+  \end{tabular*}%
+}
+
+\newcommand*{\nrolecventrynoitems}[8]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#5#6}
+      {\entrytitlestyle{#1} & \entrylocationstyle{#2} \\
+      \entrypositionstyle{#3} & \entrydatestyle{#4} \\}
+      {\ifempty{#7#8}
+        {\entrytitlestyle{#1} & \entrylocationstyle{#2} \\
+        \entrypositionstyle{#3} & \entrydatestyle{#4} \\
+        \entrypositionstyle{#5} & \entrydatestyle{#6} \\}
+        {\entrytitlestyle{#1} & \entrylocationstyle{#2} \\
+        \entrypositionstyle{#3} & \entrydatestyle{#4} \\
+        \entrypositionstyle{#5} & \entrydatestyle{#6} \\
+        \entrypositionstyle{#7} & \entrydatestyle{#8} \\}}
+  \end{tabular*}%
+}
+
+
+\newcommand*{\cventrynoitems}[4]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+  \end{tabular*}%
+}
+
+\newcommand*{\cvcustombody}[2]{%
+  \vspace{-3.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \descriptionstyle{#1} \\
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#2}}
+  \end{tabular*}%
+}
+
+\newcommand*{\cventrynoposition}[4]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 7.5cm} R{7.5cm}}
+    \entrytitlestyle{#1} \descriptionstyle{#2} & \entrylocationstyle{#3} \\
+      \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}} \\
+  \end{tabular*}%
+}
+
+% Define an entry of cv information about a project
+\newcommand*{\cventryproject}[5]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 7.5cm} R{7.5cm}}
+    \ifempty{#4}
+            {\entrytitlestyle{#1}& \entrylocationstyle{#2} \\
+              \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#3}}}
+            {\ifempty{#5}
+                    {\entrytitlestyle{#1} \descriptionstyle{#2} & \entrylocationstyle{#3} \\
+                      \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}}}
+                    {\entrytitlestyle{#1} \descriptionstyle{#2} & \entrylocationstyle{#3} \\
+                      \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}} \\
+                      \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}}
+  \end{tabular*}%
+}
+
+
 
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{%
