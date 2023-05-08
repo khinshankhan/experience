@@ -171,10 +171,10 @@
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
 \newcommand*{\headerfont}{\roboto}
-\newcommand*{\headerfontlight}{\roboto}
+\newcommand*{\headerfontlight}{\robotolight}
 \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
-\newcommand*{\bodyfontlight}{\sourcesanspro}
+\newcommand*{\bodyfontlight}{\sourcesansprolight}
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
