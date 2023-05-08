@@ -26,8 +26,8 @@
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
-% Uncomment if you would like to specify your own color
 % \colorlet{awesome}{awesome-red}
+% Uncomment if you would like to specify your own color
 % \definecolor{awesome}{HTML}{CA63A8}
 
 % Colors for text
@@ -39,7 +39,8 @@
 % \definecolor{sectiondivider}{HTML}{5D5D5D}
 
 % my colors
-\colorlet{awesome}{awesome-darknight}
+\definecolor{bluegray}{HTML}{41486C}
+\colorlet{awesome}{bluegray}
 \definecolor{text}{HTML}{161822}
 \definecolor{graytext}{HTML}{616669}
 
@@ -55,52 +56,60 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
-% \photo[rectangle,edge,right]{./examples/profile}
+% \photo{./examples/profile.png}
 \name{KHINSHAN}{KHAN}
+% \position{Software Engineer}
+% \address{42-8, Bangbae-ro 15-gil, Seocho-gu, Seoul, 00681, Rep. of KOREA}
 
 \mobile{(917) 705-9292}
 \email{shan@uptogood.dev}
-%\dateofbirth{January 1st, 1970}
+% \dateofbirth{January 1st, 1970}
 \homepage{www.uptogood.dev}
 \github{khinshankhan}
 \linkedin{khinshankhan}
-
 % \gitlab{gitlab-id}
 % \stackoverflow{SO-id}{SO-name}
 % \twitter{@twit}
 % \skype{skype-id}
 % \reddit{reddit-id}
-% \medium{madium-id}
+% \medium{medium-id}
 % \kaggle{kaggle-id}
 % \googlescholar{googlescholar-id}{name-to-display}
 %% \firstname and \lastname will be used
 % \googlescholar{googlescholar-id}{}
 % \extrainfo{extra information}
 
+% \quote{``Be the change that you want to see in the world."}
+
+
 %-------------------------------------------------------------------------------
 \begin{document}
 
 % Print the header with above personal information
 % Give optional argument to change alignment(C: center, L: left, R: right)
-\makecvheader[C]
+\makecvheader
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
-%% \makecvfooter
-%%   {\today}
-%%   {Byungjin Park~~~·~~~Résumé}
-%%   {\thepage}
+\makecvfooter
+  {\today}
+  {Khinshan Khan~~~·~~~Curriculum Vitae}
+  {\thepage}
 
 
 %-------------------------------------------------------------------------------
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-\input{resume/experience.tex}
-\input{resume/skills.tex}
-\input{resume/projects.tex}
-\input{resume/miscellaneous.tex}
-\input{resume/education.tex}
+\input{cv/skills.tex}
+\input{cv/experience.tex}
+\input{cv/projects.tex}
+\input{cv/miscellaneous.tex}
+% \input{cv/honors.tex}
+% \input{cv/presentation.tex}
+% \input{cv/writing.tex}
+% \input{cv/committees.tex}
+\input{cv/education.tex}
 
 
 %-------------------------------------------------------------------------------
