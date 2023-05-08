@@ -725,6 +725,26 @@
   \end{tabular*}%
 }
 
+\newcommand*{\cvcustombodydescription}[3]{%
+  \vspace{-3.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#1}}\\
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#2}} \\
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#3}}
+  \end{tabular*}%
+}
+
+\newenvironment{cvtightprose}{%
+  \vspace{-4.0mm}
+  \begin{justify}
+    \setlength{\parskip}{0pt}
+}{%
+  \end{justify}
+  \vspace{-4.0mm}
+}
+
 \newcommand*{\cventrynoposition}[4]{%
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
