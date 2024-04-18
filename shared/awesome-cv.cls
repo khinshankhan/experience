@@ -715,6 +715,17 @@
   \end{tabular*}%
 }
 
+\newcommand*{\cventryeduitems}[3]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} \\}
+      {\entrytitlestyle{#2} \entrypositionstyle{#1} & \entrylocationstyle{#3} \\}
+  \end{tabular*}%
+}
+
 \newcommand*{\cvcustombody}[2]{%
   \vspace{-3.0mm}
   \setlength\tabcolsep{0pt}
